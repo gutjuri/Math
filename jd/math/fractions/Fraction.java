@@ -1,4 +1,13 @@
-package fractions;
+package jd.math.fractions;
+
+/**
+ * A fraction of long values that supports various arithmethic operations. A
+ * fraction always has the property that gcd(nominator, denominator) = 1, where
+ * gcd(a, b) is the greatest common divisor of a and b.
+ * 
+ * @author Juri Dispan
+ *
+ */
 
 public class Fraction implements Comparable<Fraction> {
 
@@ -129,6 +138,10 @@ public class Fraction implements Comparable<Fraction> {
 			b = this.multiply(b);
 		}
 		return b;
+	}
+
+	public double decimalValue() {
+		return (nom + 0.0) / denom;
 	}
 
 	@Override

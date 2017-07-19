@@ -104,8 +104,8 @@ public class BigFraction implements Comparable<BigFraction> {
 	}
 
 	public BigFraction divide(BigFraction f) {
-		if(f.nom.equals(BigInteger.ZERO)) {
-			throw new ArithmeticException("Cannot divide by zero.")
+		if (f.nom.equals(BigInteger.ZERO)) {
+			throw new ArithmeticException("Cannot divide by zero.");
 		}
 		return this.multiply(new BigFraction(f.getDenominator(), f.getNominator()));
 	}
