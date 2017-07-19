@@ -90,9 +90,17 @@ public class Fraction implements Comparable<Fraction> {
 
 	}
 
+	public Fraction plus(long n) {
+		return this.plus(new Fraction(n, 1));
+	}
+
 	public Fraction minus(Fraction f) {
 		Fraction tmp = new Fraction(-f.getNominator(), f.getDenominator());
 		return this.plus(tmp);
+	}
+
+	public Fraction minus(long n) {
+		return this.minus(new Fraction(n, 1));
 	}
 
 	public Fraction multiply(Fraction f) {
@@ -111,12 +119,20 @@ public class Fraction implements Comparable<Fraction> {
 		return newfrac;
 	}
 
+	public Fraction multiply(long n) {
+		return this.multiply(new Fraction(n, 1));
+	}
+
 	public Fraction divide(Fraction f) {
 		if (f.nom == 0) {
 			throw new ArithmeticException("Cannot divide by zero.");
 		}
 		Fraction h = new Fraction(f.denom, f.nom);
 		return multiply(h);
+	}
+
+	public Fraction divide(long n) {
+		return this.divide(new Fraction(n, 1));
 	}
 
 	public long toWholeNumber() {
