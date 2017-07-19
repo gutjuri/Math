@@ -8,6 +8,7 @@ public class CalcUtils {
 	}
 
 	/**
+	 * Computes an integral.
 	 * 
 	 * @param f
 	 *            Function (e.g. x -> x*x)
