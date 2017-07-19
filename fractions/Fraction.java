@@ -11,6 +11,15 @@ public class Fraction implements Comparable<Fraction> {
 	public static final Fraction ONE_HALF = new Fraction(1, 2);
 	public static final Fraction ONE_THIRD = new Fraction(1, 3);
 
+	/**
+	 * A fraction that supports various arithmethic operations. A fraction
+	 * always has the property that gcd(nominator, denominator) = 1, where
+	 * gcd(a, b) is the greatest common divisor of a and b.
+	 * 
+	 * @param nominator
+	 * @param denominator
+	 */
+
 	public Fraction(long nominator, long denominator) {
 		boolean negativ = nominator < 0;
 		if (negativ)
@@ -36,6 +45,11 @@ public class Fraction implements Comparable<Fraction> {
 		return denom;
 	}
 
+	/**
+	 * The fractional part of this fraction.
+	 * 
+	 * @return new Fraction((nominator mod denominator) , denominator)
+	 */
 	public Fraction fractionalPart() {
 		boolean negativ = nom < 0;
 		long c = negativ ? -1 * nom : nom;
@@ -89,17 +103,26 @@ public class Fraction implements Comparable<Fraction> {
 	}
 
 	public Fraction divide(Fraction f) {
+		if (f.nom == 0) {
+			throw new ArithmeticException("Cannot divide by zero.");
+		}
 		Fraction h = new Fraction(f.denom, f.nom);
 		return multiply(h);
 	}
 
 	public long toWholeNumber() {
 		if (denom != 1) {
-			throw new ArithmeticException();
+			throw new ArithmeticException("Fraction cannot be converted to a whole number.");
 		}
 		return nom;
 	}
 
+	/**
+	 * 
+	 * @param i
+	 *            Exponent
+	 * @return This fraction to the ith power
+	 */
 	public Fraction pow(int i) {
 		Fraction b = new Fraction(1, 1);
 		for (int j = 0; j < i; j++) {
