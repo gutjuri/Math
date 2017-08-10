@@ -21,7 +21,7 @@ public class CalcUtils {
 	 *            recommend about (b-a)*100 for good precision.
 	 * @return Integral from a to b over f.
 	 */
-	public static double computeIntegral(Function<Double, Double> f, double a, double b, int n) {
+	public static double integrate(Function<Double, Double> f, double a, double b, int n) {
 		double[] partitions = new double[n + 1];
 		double h = (b - a) / n;
 		for (int i = 0; i < partitions.length; i++) {
