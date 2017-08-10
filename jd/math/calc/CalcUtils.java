@@ -35,11 +35,19 @@ public class CalcUtils {
 		}
 		return integral * h;
 	}
-	
-	
+
+	/**
+	 * Derives a function a certain point.
+	 * 
+	 * @param f
+	 *            Function (e.g. x -> x*x)
+	 * @param a
+	 *            The value of x where f shall be differentiated.
+	 * @return The slope of f at point a
+	 */
 	public static double derive(Function<Double, Double> f, double a) {
 		double prec = 0.001;
-		return (f.apply(a+prec) - f.apply(a-prec)) / (2 * prec);
-		
+		return (f.apply(a + prec) - f.apply(a - prec)) / (2 * prec);
+
 	}
 }
