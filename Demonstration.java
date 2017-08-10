@@ -44,6 +44,7 @@ public class Demonstration {
 		double slope = CalcUtils.derive(testFunction, 1);
 		System.out.println("The slope of exp(x) at x=1 is " + slope);
 		System.out.println("(Precise value is e: " + Math.E + ")");
+
 	}
 
 }
