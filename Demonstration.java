@@ -40,6 +40,10 @@ public class Demonstration {
 		double area = CalcUtils.integrate(testFunction, 0, 1, 100);
 		System.out.println("The integral of exp(x) from 0 to 1 is " + area);
 		System.out.println("(Precise value is e-1: " + (Math.E - 1) + ")");
+
+		double slope = CalcUtils.derive(testFunction, 1);
+		System.out.println("The slope of exp(x) at x=1 is " + slope);
+		System.out.println("(Precise value is e: " + Math.E + ")");
 	}
 
 }
