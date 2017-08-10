@@ -35,4 +35,11 @@ public class CalcUtils {
 		}
 		return integral * h;
 	}
+	
+	
+	public static double derive(Function<Double, Double> f, double a) {
+		double prec = 0.001;
+		return (f.apply(a+prec) - f.apply(a-prec)) / (2 * prec);
+		
+	}
 }
