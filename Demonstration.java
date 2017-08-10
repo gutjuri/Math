@@ -37,7 +37,7 @@ public class Demonstration {
 
 		// Calculus
 		Function<Double, Double> testFunction = x -> Math.exp(x);
-		double area = CalcUtils.computeIntegral(testFunction, 0, 1, 100);
+		double area = CalcUtils.integrate(testFunction, 0, 1, 100);
 		System.out.println("The integral of exp(x) from 0 to 1 is " + area);
 		System.out.println("(Precise value is e-1: " + (Math.E - 1) + ")");
 	}
