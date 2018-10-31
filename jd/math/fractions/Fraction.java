@@ -21,15 +21,20 @@ public class Fraction implements Comparable<Fraction> {
 	public static final Fraction ONE_THIRD = new Fraction(1, 3);
 
 	/**
-	 * A fraction that supports various arithmethic operations. A fraction
-	 * always has the property that gcd(nominator, denominator) = 1, where
-	 * gcd(a, b) is the greatest common divisor of a and b.
+	 * A fraction that supports various arithmethic operations. A fraction always
+	 * has the property that gcd(nominator, denominator) = 1, where gcd(a, b) is the
+	 * greatest common divisor of a and b.
 	 * 
 	 * @param nominator
 	 * @param denominator
+	 * @throws IllegalArgumentException
+	 *             When {@code denominator} is equal to zero.
 	 */
 
 	public Fraction(long nominator, long denominator) {
+		if (denominator == 0) {
+			throw new IllegalArgumentException("Denominator must not be zero.");
+		}
 		boolean negativ = nominator < 0;
 		if (negativ)
 			nominator *= -1;
@@ -154,6 +159,15 @@ public class Fraction implements Comparable<Fraction> {
 			b = this.multiply(b);
 		}
 		return b;
+	}
+
+	/**
+	 * Returns the inverse fraction (1/this).
+	 * 
+	 * @return the inverse fraction.
+	 */
+	public Fraction invert() {
+		return new Fraction(denom, nom);
 	}
 
 	public double decimalValue() {

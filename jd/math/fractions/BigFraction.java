@@ -27,8 +27,13 @@ public class BigFraction implements Comparable<BigFraction> {
 	 * 
 	 * @param nominator
 	 * @param denominator
+	 * @throws IllegalArgumentException
+	 *             When {@code denominator} is equal to zero.
 	 */
 	public BigFraction(BigInteger nominator, BigInteger denominator) {
+		if (BigInteger.ZERO.equals(denominator)) {
+			throw new IllegalArgumentException("Denominator must not be zero.");
+		}
 		boolean flip = false;
 		if (nominator.compareTo(BigInteger.ZERO) < 0) {
 			nominator = nominator.negate();
@@ -54,18 +59,22 @@ public class BigFraction implements Comparable<BigFraction> {
 	 * 
 	 * @param nominator
 	 * @param denominator
+	 * @throws IllegalArgumentException
+	 *             When {@code denominator} is equal to zero.
 	 */
 	public BigFraction(String nom, String denom) {
 		this(new BigInteger(nom), new BigInteger(denom));
 	}
 
 	/**
-	 * * A fraction of BigIntegers that supports various arithmethic operations. A
+	 * A fraction of BigIntegers that supports various arithmethic operations. A
 	 * fraction always has the property that gcd(nominator, denominator) = 1, where
 	 * gcd(a, b) is the greatest common divisor of a and b.
 	 * 
 	 * @param nominator
 	 * @param denominator
+	 * @throws IllegalArgumentException
+	 *             When {@code denominator} is equal to zero.
 	 */
 
 	public BigFraction(long nom, long denom) {
@@ -210,6 +219,15 @@ public class BigFraction implements Comparable<BigFraction> {
 	 */
 	public BigFraction pow(int i) {
 		return new BigFraction(this.nom.pow(i), this.denom.pow(i));
+	}
+
+	/**
+	 * Returns the inverse fraction (1/this).
+	 * 
+	 * @return the inverse fraction.
+	 */
+	public BigFraction invert() {
+		return new BigFraction(denom, nom);
 	}
 
 	@Override
